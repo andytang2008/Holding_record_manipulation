@@ -1,8 +1,8 @@
 <?php
 /**
-Attention:this code is used to add 866 field to holding record in ALMA. 
+Attention: this code is used to add 866 field to holding record in ALMA. 
 
-Attention: be sure to test this code in Sandbox before apply it in Production environment.
+Attention: be sure to test this code in Sandbox before applying it in Production environment.
 
 Running envirnment: Windows 7 + PHP 5.6.26;
 No any garantee!
@@ -16,7 +16,7 @@ ini_set("memory_limit","360M"); //Setup the maximux file size you will open.
 $holdingFile_handle=file_get_contents("holding_data_from_product.txt"); //Open the xml file we retieved previously by using API
 //when using file_get_contents to put xml into variable, no need to escape double quotes. Andy
 
-$holdingFile_handle=str_replace ("<?xml", "$$<?xml", $holdingFile_handle); //add seperator $$ to each xml paragraph
+$holdingFile_handle=str_replace ("<?xml", "$$<?xml", $holdingFile_handle); //Add seperator $$ to each xml paragraph
 
 $pos = strpos($holdingFile_handle, "$$");
 if ($pos !== false) {
@@ -97,13 +97,13 @@ function apicall($bibID,$holdingID,$contents){
 	$response = curl_exec($ch);
 	
 	if (curl_errno($ch)) {
-		// this would be your first hint that something went wrong
+		// This would be your first hint that something went wrong
 		die('Couldn\'t send request: ' . curl_error($ch));
 	} else {
-		// check the HTTP status code of the request
+		// Check the HTTP status code of the request
 		$resultStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		if ($resultStatus == 200) {
-			// everything went better than expected
+			// Everything went better than expected
 		} else {
         die('Request failed: HTTP status code: ' . $resultStatus);
 		}
