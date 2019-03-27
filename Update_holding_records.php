@@ -9,7 +9,7 @@ No any garantee!
 
 03-2019
 by Andy Tang
-*/;
+*/
 
 ini_set("memory_limit","360M"); //Setup the maximux file size you will open.
 
