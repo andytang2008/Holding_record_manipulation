@@ -1,5 +1,4 @@
 <?php
-
 /**Get all holding records according to the holding PID list. We use the fake MMS ID as the coax, because each holding PID uniquely identify the holding record and did not need MMS ID at all.
 Attention: be sure to test this code in Sandbox before apply it in Production environment.
 
@@ -11,13 +10,13 @@ by Andy Tang
 */
 
 
-ini_set("memory_limit","360M"); //setup the maximux file size you will open.
+ini_set("memory_limit","360M"); //Setup the maximux file size you will open.
 $handle = @fopen('holding_PID_list.txt', "r");  //The file contais the list of holding PID you would like to use to download holding records from ALMA. Attention to include file extension. You need to change this file name to your holding PID file name.
 if ($handle) { 
    while (!feof($handle)) { 
        $lines[] = fgets($handle, 8192); //16384 is the size of each line can contain.
    } 
-  // print "count of array:".count($lines);
+  // Print "count of array:".count($lines);
    fclose($handle); 
 } 
 
