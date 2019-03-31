@@ -11,7 +11,7 @@ No any garantee!
 by Andy Tang
 */
 
-ini_set("memory_limit","360M"); //Setup the maximux file size you will open.
+ini_set("memory_limit","360M"); //Setup the maximum file size you will open.
 
 $holdingFile_handle=file_get_contents("holding_data_from_product.txt"); //Open the xml file we retieved previously by using API
 //when using file_get_contents to put xml into variable, no need to escape double quotes. Andy
