@@ -1,5 +1,5 @@
 <?php
-/**Get all holding records according to the holding PID list. We use the fake MMS ID as the coax, because each holding PID uniquely identify the holding record and did not need MMS ID at all.
+/**Get all holding records according to the holding PID list. We use the fake MMS ID as the hoax, because each holding PID uniquely identify the holding record and did not need MMS ID at all.
 Attention: be sure to test this code in Sandbox before apply it in Production environment.
 
 Running envirnment: Windows 7 + PHP 5.6.26;
@@ -10,7 +10,7 @@ by Andy Tang
 */
 
 
-ini_set("memory_limit","360M"); //Setup the maximux file size you will open.
+ini_set("memory_limit","360M"); //Setup the maximum file size you will open.
 $handle = @fopen('holding_PID_list.txt', "r");  //The file contais the list of holding PID you would like to use to download holding records from ALMA. Attention to include file extension. You need to change this file name to your holding PID file name.
 if ($handle) { 
    while (!feof($handle)) { 
@@ -25,7 +25,7 @@ $fp = fopen('holding_data_from_product.txt', 'w'); //Prepare to output all downl
 for ($i=0;$i<sizeof($lines);$i++){
 	//echo $lines[$i];
 	$holdingNumber= str_replace(array("\r\n", "\n", "\r"), '', $lines[$i]);  //Delete the CR and LF sign at the end of each line.
-	apicall('0',$holdingNumber,$fp);  //we setup a fake Bib id as a coax.
+	apicall('0',$holdingNumber,$fp);  //we setup a fake Bib id as a hoax.
 	//sleep(1);
 }
 
